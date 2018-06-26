@@ -8,11 +8,12 @@ public class App {
     public static void main(String[] args) {
 
         int iterations = 0;
+        Game game = new Game();
 
         try {
 
             while (iterations < MAX_ITERATIONS) {
-
+                print(game.play());
             }
 
         } catch (Throwable e) {
