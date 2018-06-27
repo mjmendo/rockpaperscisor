@@ -1,27 +1,19 @@
 package game;
 
+import game.config.AppContext;
 import game.logic.GameRules;
 import game.model.Command;
 import game.model.Play;
 import game.model.Player;
 import org.junit.Test;
 
-import java.util.EnumMap;
-import java.util.Map;
 import java.util.Optional;
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.*;
 
 public class GameRulesTest {
 
-    private Map<Command, Command> rules = new EnumMap<Command, Command>(Command.class){{
-        put(Command.Paper, Command.Rock);
-        put(Command.Rock, Command.Scissor);
-        put(Command.Scissor, Command.Paper);
-    }};
-    private GameRules gameRules = new GameRules(rules);
+    private GameRules gameRules = new GameRules(new AppContext().rules());
     private Player player1 = new Player("player1");
     private Player player2 = new Player("player2");
 
