@@ -6,6 +6,8 @@ import game.model.Play;
 import game.model.Player;
 import org.junit.Test;
 
+import java.util.EnumMap;
+import java.util.Map;
 import java.util.Optional;
 
 import static org.junit.Assert.assertEquals;
@@ -14,7 +16,12 @@ import static org.junit.Assert.assertTrue;
 
 public class GameRulesTest {
 
-    private GameRules gameRules = new GameRules();
+    private Map<Command, Command> rules = new EnumMap<Command, Command>(Command.class){{
+        put(Command.Paper, Command.Rock);
+        put(Command.Rock, Command.Scissor);
+        put(Command.Scissor, Command.Paper);
+    }};
+    private GameRules gameRules = new GameRules(rules);
     private Player player1 = new Player("player1");
     private Player player2 = new Player("player2");
 

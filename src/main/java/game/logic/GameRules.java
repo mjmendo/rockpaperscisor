@@ -3,17 +3,15 @@ package game.logic;
 import game.model.Command;
 import game.model.Play;
 
-import java.util.EnumMap;
 import java.util.Map;
 import java.util.Optional;
 
 public class GameRules {
+    private final Map<Command, Command> keyWinsOverValue;
 
-    private final Map<Command, Command> keyWinsOverValue = new EnumMap<Command, Command>(Command.class){{
-        put(Command.Paper, Command.Rock);
-        put(Command.Rock, Command.Scissor);
-        put(Command.Scissor, Command.Paper);
-    }};
+    public GameRules(Map rules) {
+        this.keyWinsOverValue = rules;
+    }
 
     public Optional<Play> check(Play play1, Play play2) {
 
