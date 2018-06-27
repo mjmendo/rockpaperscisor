@@ -1,4 +1,8 @@
-package game;
+package game.logic;
+
+import game.model.Command;
+import game.model.Play;
+import game.model.Player;
 
 import java.util.Random;
 

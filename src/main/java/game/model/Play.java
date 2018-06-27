@@ -1,9 +1,9 @@
-package game;
+package game.model;
 
 public class Play {
 
-    Player player;
-    Command command;
+    private Player player;
+    private Command command;
 
     public Play(Player player, Command command) {
         this.player = player;
